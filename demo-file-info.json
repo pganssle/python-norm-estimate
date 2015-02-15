@@ -1,0 +1,28 @@
+{
+    "file_list": [
+                  {
+                    "name": "serial-episode-07",
+                    "url": "http://files.serialpodcast.org/sites/default/files/podcast/1420058192/serial-s01-e07",
+                    "type": "mp3",
+                    "checksum": "749722680cc0f4e533498d8911d049fcf855e7cc1649c48826a6585cb1af5564"
+                  },
+                  { 
+                    "name": "seattle-library-podcast-2014-10-28",
+                    "url": "http://www.spl.org/Audio/14_10_28_Rob_Lin.mp3",
+                    "type": "mp3",
+                    "checksum": "6ece93f358b8e6e978593684e651f33c378e37099642577748565317e6b2f294"
+                  },
+                  {
+                    "name": "spy-museum-podcast-2014-11-07",
+                    "url": "https://s3.amazonaws.com/spy-museum/files/spycast/audio/2014_11_03_good-hunting",
+                    "type": "mp3",
+                    "checksum": "172e819f6cc71fdf687603a419ab434a46e2b5a3a2767db835089455264f0ac9"
+                  },
+                  {
+                   "name": "federalist-society-events-2014-06-11",
+                   "url": "https://www.fed-soc.org/multimedia/DownloadLibrary?id=6389",
+                   "type": "mp3",
+                   "checksum": "804df6060ee430f7ee798a2333a947ab79b12385f0aa619bef1f3d13aedc24c7"
+                  }
+                 ]
+}
