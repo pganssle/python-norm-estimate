@@ -10,16 +10,18 @@ class RandomSubsetGenerator:
     Pulls data from the subset in random order, without replacement (e.g. no duplicates)
     """
 
-    def __init__(self, array_subset, rand_function=None):
+    def __init__(self, array_subset, n=None, rand_function=None):
         """
         Constructor for the random subset generator. Use a Fischer-Yates shuffle, based on
         the implementation here: http://codegolf.stackexchange.com/a/4820
-
-
         
         :param array_subset:
             Provide either an integer or a tuple of of the form (start, end)
-        :param crand_function:
+        
+        :param n:
+            The size of the subset to generate (default behavior returns the full array, shuffled)
+
+        :param rand_function:
             A `randint()`-like function.
         """
         if rand_function is None:
@@ -38,7 +40,7 @@ class RandomSubsetGenerator:
             raise ValueError('Array subset must have length >= 0')
 
         self.index = 0
-        self.length = self.high - self.low
+        self.length = self.high - self.low if n is None else n
 
         self.high -= 1      # Zero-based index
 
