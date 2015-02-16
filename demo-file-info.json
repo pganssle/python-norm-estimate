@@ -2,7 +2,7 @@
     "file_list": [
                   {
                     "name": "serial-episode-07",
-                    "url": "http://files.serialpodcast.org/sites/default/files/podcast/1420058192/serial-s01-e07",
+                    "url": "http://files.serialpodcast.org/sites/default/files/podcast/1420058192/serial-s01-e07.mp3",
                     "type": "mp3",
                     "checksum": "749722680cc0f4e533498d8911d049fcf855e7cc1649c48826a6585cb1af5564"
                   },
@@ -14,7 +14,7 @@
                   },
                   {
                     "name": "spy-museum-podcast-2014-11-07",
-                    "url": "https://s3.amazonaws.com/spy-museum/files/spycast/audio/2014_11_03_good-hunting",
+                    "url": "http://spy-museum.s3.amazonaws.com/feeds/spycast/media/2014_11_03_Devine.mp3",
                     "type": "mp3",
                     "checksum": "172e819f6cc71fdf687603a419ab434a46e2b5a3a2767db835089455264f0ac9"
                   },

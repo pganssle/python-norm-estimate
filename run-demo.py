@@ -65,7 +65,7 @@ for demo_file in f_list:
     # goes wrong in the conversion we'll already have the mp3s ready to go.
     mp3_target_location = os.path.join(mp3_loc, demo_file['name'] + '.' + demo_file['type'])
     
-    if not (os.path.exists(mp3_target_location)  or  os.path.exists(wav_target_location)):
+    if not os.path.exists(mp3_target_location):
         if not os.path.exists(mp3_loc):
             os.makedirs(mp3_loc)
 
