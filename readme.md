@@ -59,8 +59,8 @@ the middle being the absolute *worst* place to start.  If you are willing to acc
 factor, the "start" line gets close pretty quickly, but the "middle" has some long quiet period that
 will certainly take a while to average out:
 
-<div align="center" style="width:400px">
-<a href="https://raw.githubusercontent.com/pganssle/python-norm-estimate/master/outputs/sequential/federalist-society-events-2014-06-11%20%28Until%20Close%29.png"><img src="https://raw.githubusercontent.com/pganssle/python-norm-estimate/master/outputs/sequential/federalist-society-events-2014-06-11%20%28Until%20Close%29.png" width="400px"></a>
+<div align="center" style="width:750px">
+<a href="https://raw.githubusercontent.com/pganssle/python-norm-estimate/master/outputs/sequential/federalist-society-events-2014-06-11%20%28Until%20Close%29.png"><img src="https://raw.githubusercontent.com/pganssle/python-norm-estimate/master/outputs/sequential/federalist-society-events-2014-06-11%20%28Until%20Close%29.png" width="750px"></a>
 </div>
 
 In any case, the worst case scenario here (the Federalist Society podcast, starting in the middle), 
