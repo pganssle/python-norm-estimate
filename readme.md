@@ -25,6 +25,8 @@ To get an estimate of how many samples it takes to get close to the true value, 
 true loudness of the file to start with, then try reading it out until I get close enough to the
 true value. Retrieving samples from the start, middle and end of each file, until I get to within
 0.2 dB of the true value gives me:
+
+
     >>> python run-demo.py -ds -sh -uc -uc -ms 100000000
     serial-episode-07.mp3
     True dBFS: -19.037004
@@ -50,12 +52,20 @@ true value. Retrieving samples from the start, middle and end of each file, unti
     Middle number of samples: 96944106 (-25.549533 dB)
     End number of samples: 78138 (-25.545350 dB)
 
+
 It seems like in many cases, if you're going to pick a place and start sampling, the middle is the
 best place to start - but the Federalist Society event podcast is a notable exception to this - with
-the middle being the absolute *worst* place to start. In any case, the worst case scenario here
-(the Federalist Society podcast, starting in the middle), still only takes 36 minutes of audio to
-get us the data we need - which isn't great, but it's still less than 50% of the total duration of
-the episode, so it's a start.
+the middle being the absolute *worst* place to start.  If you are willing to accept a bigger error 
+factor, the "start" line gets close pretty quickly, but the "middle" has some long quiet period that
+will certainly take a while to average out:
+
+<div align="center" style="width:400px">
+<a href="https://raw.githubusercontent.com/pganssle/python-norm-estimate/master/outputs/sequential/federalist-society-events-2014-06-11%20%28Until%20Close%29.png"><img src="https://raw.githubusercontent.com/pganssle/python-norm-estimate/master/outputs/sequential/federalist-society-events-2014-06-11%20%28Until%20Close%29.png" width="400px"></a>
+</div>
+
+In any case, the worst case scenario here (the Federalist Society podcast, starting in the middle), 
+still only takes 36 minutes of audio to get us the data we need - which isn't great, but it's still 
+less than 50% of the total duration of the episode, so it's a start.
 
 ### Random Subset
 
@@ -63,6 +73,7 @@ Rather than choosing samples sequentially, if we choose them at random, it's ver
 you'll take *too many* samples from any given quiet or loud region, so you should be able to get
 close to the true value much more quickly. Repeating the above test using random subsampling (and
 because it's not the same results every time, repeating *that* test 150 times), you get:
+
 
     >>> python run-demo.py -dr -rr 150 -uc --min-samples 100
     serial-episode-07.mp3
@@ -93,6 +104,7 @@ because it's not the same results every time, repeating *that* test 150 times), 
     Min number of samples: 101.000000 (2.290249 ms)
     Max number of samples: 38802.000000 (879.863946 ms)
 
+
 So it looks like the absolute worst case performance here is about 1.5 seconds - considerably less 
 than the 36 minutes from the sequential test! Of course, we can't assume that we know the true value 
 of the loudness, since that's what we're trying to measure, so we have a question of when to stop 
@@ -101,34 +113,36 @@ duration worth of random samples and seeing how close that gets us to the true v
 seconds (44,000 or 88,000 samples) worth of audio from each of these files 150 times gives the 
 following results:
 
+
     >>> python run-demo.py -dr -rr 150 -d 2.0 
     serial-episode-07.mp3
     True dBFS: -19.037004
-    Mean dBFS: -19.050726 (Error: 0.013722)
-    Min dBFS: -19.174793 (Error: 0.137789)
-    Max dBFS: -18.945533 (Error: 0.091471)
-    Standard Deviation:  0.051313
+    Mean dBFS: -19.040694 (Error: 0.003690)
+    Min dBFS: -19.162484 (Error: 0.125480)
+    Max dBFS: -18.903390 (Error: 0.133614)
+    Standard Deviation:  0.051996
 
     seattle-library-podcast-2014-10-28.mp3
     True dBFS: -34.131281
-    Mean dBFS: -34.129630 (Error: 0.001652)
-    Min dBFS: -34.256691 (Error: 0.125409)
-    Max dBFS: -33.766060 (Error: 0.365222)
-    Standard Deviation:  0.074481
+    Mean dBFS: -34.115192 (Error: 0.016089)
+    Min dBFS: -34.311679 (Error: 0.180398)
+    Max dBFS: -33.937149 (Error: 0.194132)
+    Standard Deviation:  0.074995
 
     spy-museum-podcast-2014-11-07.mp3
-    True dBFS: -21.946289
-    Mean dBFS: -21.945140 (Error: 0.001149)
-    Min dBFS: -22.051429 (Error: 0.105140)
-    Max dBFS: -21.811977 (Error: 0.134312)
-    Standard Deviation:  0.048184
+    True dBFS: -21.969535
+    Mean dBFS: -21.961811 (Error: 0.007724)
+    Min dBFS: -22.102569 (Error: 0.133034)
+    Max dBFS: -21.791989 (Error: 0.177546)
+    Standard Deviation:  0.053758
 
     federalist-society-events-2014-06-11.mp3
     True dBFS: -25.349533
-    Mean dBFS: -25.354348 (Error: 0.004814)
-    Min dBFS: -25.534129 (Error: 0.184596)
-    Max dBFS: -25.091527 (Error: 0.258006)
-    Standard Deviation:  0.085039
+    Mean dBFS: -25.344582 (Error: 0.004951)
+    Min dBFS: -25.604302 (Error: 0.254768)
+    Max dBFS: -25.089123 (Error: 0.260410)
+    Standard Deviation:  0.087513
+
 
 Using [mp3Gain](https://en.wikipedia.org/wiki/MP3Gain) on these same files and setting the target
 "normal" volume to be the value at which Serial is mastered, mp3Gain recommends a volume boost of
